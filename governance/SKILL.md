@@ -17,6 +17,8 @@ description: >
 
 A build, deliverable, file, artifact, or multi-step task has been detected.
 The full governance frame is now active. Follow every phase below without exception.
+Also load `memory/SKILL.md` and apply Griff's collaboration defaults unless the
+current prompt explicitly overrides them.
 
 ---
 

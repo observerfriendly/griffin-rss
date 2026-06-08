@@ -43,10 +43,23 @@ registerTool(
   "get_governance_framework",
   "Fetch the governance framework. Call this at the start of any build, " +
     "multi-step task, or artifact creation to load the collaborative build " +
-    "protocol (blueprint, build, review).",
+    "protocol (blueprint, build, review). For non-trivial work, also call " +
+    "get_claude_memory.",
   {},
   async () => {
     const content = await fetchSkill("governance/SKILL.md");
+    return { content: [{ type: "text", text: content }] };
+  }
+);
+
+registerTool(
+  "get_claude_memory",
+  "Fetch Griff's collaboration memory. Call this alongside governance for " +
+    "non-trivial deliverables, planning, drafting, critique, TDC work, or " +
+    "tasks where Griff's working preferences should shape the response.",
+  {},
+  async () => {
+    const content = await fetchSkill("memory/SKILL.md");
     return { content: [{ type: "text", text: content }] };
   }
 );
@@ -74,6 +87,12 @@ registerTool(
         tool: "get_governance_framework",
         description: "Collaborative build framework — blueprint, build, review.",
         triggers: ["make", "build", "create", "finish", "ledger", "spreadsheet", "draft", "artifact"],
+      },
+      {
+        name: "claude-memory",
+        tool: "get_claude_memory",
+        description: "Griff's collaboration defaults — accuracy, scope, format, calibration.",
+        triggers: ["non-trivial work", "planning", "drafting", "critique", "TDC", "workflow"],
       },
       {
         name: "tdc-builder",
@@ -108,11 +127,14 @@ registerTool(
       isTdcTask,
       isSimpleLookup,
       governanceRequired: isBuildTask,
-      skillsToLoad: [...(isBuildTask ? ["governance"] : []), ...(isTdcTask ? ["tdc-builder"] : [])],
+      skillsToLoad: [
+        ...(isBuildTask ? ["governance", "claude-memory"] : []),
+        ...(isTdcTask ? ["tdc-builder", "claude-memory"] : []),
+      ],
       recommendation: isSimpleLookup
         ? "Simple lookup — execute directly."
         : isBuildTask
-        ? "Build task — load governance, state plan before executing."
+        ? "Build task — load governance and claude-memory, state plan before executing."
         : "Ambiguous — ask one scoping question before proceeding.",
     };
     return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
