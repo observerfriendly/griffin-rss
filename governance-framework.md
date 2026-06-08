@@ -141,3 +141,12 @@ The short version survives in the memory entry; full version lives here.)
 # Memory from Dia
 ## Unused; condensed by Dia (June 9)
 
+I have you as Griffin McCabe, a graphic designer and Program Manager at the Type Directors Club, with a strong professional focus on typography, spacing, grids, and web design. You’re deeply interested in type (including open‑source and accessibility‑focused fonts), UI components, front‑end frameworks, and modern web design trends. You also have a background in photography (including work for Transworld Surf) and wrote a piece for Print Magazine about creativity and commerce.
+
+On the tooling/behavior side, I have that you use Dia Browser, Google Drive (with specific TDC folders like Events, Awards, Competitions, Winner Comms, and “The Lighthouse x TDC”), GitHub, Figma, Discord, eBay, NotebookLM, Google Labs tools (Pomelli, etc.), Card Ladder, Product Hunt, and that you like your browser bookmarks permanently visible and organize tabs with named groups and bullet‑style site lists.
+
+On interests and ongoing explorations, I have that you’re into AI and AI‑powered tools: generative AI, agents, AI for workflows, dictation/speech‑to‑text, palette generators, and tools that transform or condense content (including wanting AI to turn text into bullet lists). You’ve been exploring Model Context Protocol (MCP) servers to wire AI into code, databases, knowledge management, debugging, web research, and automation. You also dig creative coding/generative art, WebGL, electronics/circuit simulation, old/ephemeral film and TV, fashion history/archives, science‑fiction fandom history, and general new‑tech product discovery.
+
+There are some very specific contextual bits too: that you’re involved with TDC72 Awards Ceremony and Exhibition; you have an “eBay Items” Google Drive folder; you’ve hit Apple ID and Google sign‑in friction (e.g., too many failed attempts); and you sometimes post to Instagram from desktop.
+
+For how you learn, I have that you prefer visual diagrams and metaphors, and that you move quickly between overlapping topics.
