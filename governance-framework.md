@@ -133,3 +133,11 @@ Original intent: hold the blueprint line without becoming inflexible.)
 
 (Compressed from the fuller Phase 4 description above.
 The short version survives in the memory entry; full version lives here.)
+
+---
+---
+
+
+# Memory from Dia
+## Unused; condensed by Dia (June 9)
+
