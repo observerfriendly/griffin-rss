@@ -10,6 +10,8 @@ griffin-rss/
 │   └── SKILL.md          — Collaborative build framework (blueprint, build, review)
 ├── memory/
 │   └── SKILL.md          — Griff's collaboration defaults and Claude memory
+├── python-reference/
+│   └── SKILL.md          — Curated Python ops toolkit
 ├── tdc-builder/
 │   └── SKILL.md          — TDC operational playbook
 ├── src/
@@ -42,6 +44,7 @@ npm run build
 |------|-------------|
 | `get_governance_framework` | Fetch governance build protocol |
 | `get_claude_memory` | Fetch Griff's collaboration memory |
+| `get_python_reference` | Fetch curated Python ops toolkit |
 | `get_tdc_builder` | Fetch TDC operational playbook |
 | `list_skills` | List all skills and triggers |
 | `check_build_task` | Assess whether governance should activate |

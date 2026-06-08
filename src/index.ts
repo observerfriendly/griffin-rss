@@ -65,6 +65,18 @@ registerTool(
 );
 
 registerTool(
+  "get_python_reference",
+  "Fetch Griff's curated Python ops toolkit. Call this when choosing Python " +
+    "libraries or planning scripts for RSS, scraping, Sheets, data cleanup, " +
+    "local storage, scheduling, or workflow/skill design.",
+  {},
+  async () => {
+    const content = await fetchSkill("python-reference/SKILL.md");
+    return { content: [{ type: "text", text: content }] };
+  }
+);
+
+registerTool(
   "get_tdc_builder",
   "Fetch the TDC operational playbook. Call this for any TDC task: " +
     "competition ops, winner outreach, exhibition, ceremony, annual book, " +
@@ -93,6 +105,12 @@ registerTool(
         tool: "get_claude_memory",
         description: "Griff's collaboration defaults — accuracy, scope, format, calibration.",
         triggers: ["non-trivial work", "planning", "drafting", "critique", "TDC", "workflow"],
+      },
+      {
+        name: "python-reference",
+        tool: "get_python_reference",
+        description: "Curated Python ops toolkit — feeds, scraping, Sheets, data cleanup, scheduling.",
+        triggers: ["Python", "script", "RSS", "feed", "scrape", "crawl", "Sheets", "CSV", "schedule"],
       },
       {
         name: "tdc-builder",
