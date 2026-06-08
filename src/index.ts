@@ -10,12 +10,18 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const GITHUB_RAW_BASE =
   "https://raw.githubusercontent.com/observerfriendly/griffin-rss/main";
 
-const LOCAL_BASE = join(__dirname, "../../");
+const LOCAL_BASE = join(__dirname, "..");
 
 const server = new McpServer({
   name: "griffin-rss",
   version: "1.0.0",
 });
+
+const registerTool = server.tool.bind(server) as (...args: unknown[]) => void;
+
+const checkBuildTaskSchema: { request: z.ZodString } = {
+  request: z.string().describe("The user request to analyze"),
+};
 
 async function fetchSkill(skillPath: string): Promise<string> {
   const url = `${GITHUB_RAW_BASE}/${skillPath}`;
@@ -33,7 +39,7 @@ async function fetchSkill(skillPath: string): Promise<string> {
   }
 }
 
-server.tool(
+registerTool(
   "get_governance_framework",
   "Fetch the governance framework. Call this at the start of any build, " +
     "multi-step task, or artifact creation to load the collaborative build " +
@@ -45,7 +51,7 @@ server.tool(
   }
 );
 
-server.tool(
+registerTool(
   "get_tdc_builder",
   "Fetch the TDC operational playbook. Call this for any TDC task: " +
     "competition ops, winner outreach, exhibition, ceremony, annual book, " +
@@ -57,7 +63,7 @@ server.tool(
   }
 );
 
-server.tool(
+registerTool(
   "list_skills",
   "List all available skills with descriptions and trigger phrases.",
   {},
@@ -80,11 +86,12 @@ server.tool(
   }
 );
 
-server.tool(
+registerTool(
   "check_build_task",
   "Analyze a request and determine whether governance should activate.",
-  { request: z.string().describe("The user request to analyze") },
-  async ({ request }) => {
+  checkBuildTaskSchema,
+  async (args: { request: string }) => {
+    const request = String(args.request);
     const buildTriggers = ["make", "build", "create", "finish", "add", "update",
       "write", "draft", "ledger", "spreadsheet", "document", "artifact", "report",
       "run comps", "pull comps", "outreach", "campaign", "tracker"];

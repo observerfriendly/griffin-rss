@@ -10,16 +10,15 @@ griffin-rss/
 │   └── SKILL.md          — Collaborative build framework (blueprint, build, review)
 ├── tdc-builder/
 │   └── SKILL.md          — TDC operational playbook
-└── mcp-server/
-    ├── src/index.ts      — MCP server (TypeScript)
-    ├── package.json
-    └── tsconfig.json
+├── src/
+│   └── index.ts          — MCP server (TypeScript)
+├── package.json
+└── tsconfig.json
 ```
 
 ## MCP Setup
 
 ```bash
-cd mcp-server
 npm install
 npm run build
 ```
@@ -30,7 +29,7 @@ npm run build
   "mcpServers": {
     "griffin-rss": {
       "command": "node",
-      "args": ["/path/to/griffin-rss/mcp-server/dist/index.js"]
+      "args": ["/Users/griffinmccabe/Desktop/griffin-rss/dist/index.js"]
     }
   }
 }
